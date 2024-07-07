@@ -18,13 +18,13 @@ const Card = (props) => {
     }
     return (
         <>
-            <div className='w-full h-[auto] flex flex-col mx-auto pb-[30px] bg-white rounded-lg p-4 shadow-md shadow-button'>
+            <div className='w-full h-[auto] flex flex-col mx-auto pb-[30px] bg-white rounded-lg p-5 shadow-md shadow-button justify-evenly'>
                 <Link to={slug}>
-                    <img src={img} className='w-[80%] object-contain object-center mx-auto' />
+                    <img src={img} className='w-[60%] object-contain object-center mx-auto drop-shadow-[0_80px_30px_#0007] bg-transparent' />
                 </Link>
                 <div className='flex flex-col w-full h-[50px] justify-start relative mt-5 pl-10'>
                     <span className='text-sm tracking-wider'>{name}</span>
-                    <span className='font-lato font-[300]'>${price}.00</span>
+                    <span className='font-lato font-[300]'>${price}</span>
                 </div>
                 <div>
                     <button className='flex w-[80%] h-[40px] font-lato mx-auto gap-3 justify-center items-center bg-button p-2 rounded-xl text-sm text-white mt-5 hover:cursor-pointer hover:opacity-95 active:text-red-600' onClick={handleAddToCart}><FaCartPlus size={24} color='#fff' />Add to Cart</button>

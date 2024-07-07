@@ -7,15 +7,11 @@ import { Link } from 'react-router-dom';
 
 const CardTabs = () => {
     const [totalQty, setTotalQty] = useState(0);
-    const [price, setPrice] = useState(0)
     const [totalSum, setTotalSum] = useState(0)
     const carts = useSelector(store => store.cart.items);
     const products = useSelector(store => store.product.products)
     const statusTab = useSelector(store => store.cart.statusTab);
     const dispatch = useDispatch();
-
-    const [id, setId] = useState('')
-
 
     useEffect(() => {
         let total = 0;
@@ -24,31 +20,21 @@ const CardTabs = () => {
     }, [carts]);
 
     useEffect(() => {
-        products.forEach((prd) => {
-            if (prd.id ) {
-                const price = prd.price;
-                setPrice(price)
-            } else {
-                return
-            }
-
-        });
-    }, [id])
-
-    useEffect(() => {
         let sum = 0
-        carts.forEach((item) => {
-            const qty = item.quantity;
-            const id = item.productId;
-            setId(id)
-            sum += qty * price
+        const inCart = [];
+        carts.map((cart) => {
+            const { productId, quantity } = cart;
+            const pd = products.findIndex((prd) => prd.id === productId);
+            const price = products[pd].price
+            inCart.push(price*quantity)
         });
-        setTotalSum(sum)
+        for (let i = 0; i < inCart.length; i++) {
+            sum += inCart[i]
+        }
+
+        setTotalSum(sum.toFixed(2))
 
     }, [totalQty, carts])
-
-   
-
 
 
     const handleCloseTab = () => {
@@ -74,7 +60,7 @@ const CardTabs = () => {
                     })}
                 </div>
 
-                <p className='font-lato text-center text-sm mt-[50px] text-[#0000008b]'>Subtotal: <span>${totalSum}.00</span></p>
+                <p className='font-lato text-center text-sm mt-[50px] text-[#0000008b]'>Subtotal: <span>${totalSum}</span></p>
 
                 <div className={`flex flex-col p-4 gap-1 w-[80%] mx-auto mb-5 mt-4 ${carts.length ? 'flex' : 'hidden'}`}>
                     <button className='bg-[#9b9999b1] text-black text-[12px] w-full h-[60px]'>VIEW CART</button>

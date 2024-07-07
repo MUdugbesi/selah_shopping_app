@@ -8,13 +8,8 @@ const CheckOut = () => {
     const carts = useSelector(store => store.cart.items);
     const products = useSelector(store => store.product.products)
     const [totalQty, setTotalQty] = useState(0);
-    const [qty, setQty] = useState(1);
-    const [price, setPrice] = useState(0);
     const [totalSum, setTotalSum] = useState(0);
-    const [id, setId] = useState(null)
     const VAT = 15;
-
-
     useEffect(() => {
         let total = 0;
         carts.forEach((item) => total += item.quantity)
@@ -23,27 +18,19 @@ const CheckOut = () => {
 
     useEffect(() => {
         let sum = 0
-        carts.forEach((item) => {
-            const qty = item.quantity;
-            const id = item.productId;
-            setId(id)
-            setQty(qty)
-            sum += qty * price
+        const inCart = [];
+        carts.map((cart) => {
+            const { productId, quantity } = cart;
+            const pd = products.findIndex((prd) => prd.id === productId);
+            const price = products[pd].price
+            inCart.push(price * quantity)
         });
-        setTotalSum(sum)
+        for (let i = 0; i < inCart.length; i++) {
+            sum += inCart[i]
+        }
+        setTotalSum(Number(sum.toFixed(2)))
+    }, [carts])
 
-    }, [[], carts])
-
-    useEffect(() => {
-        products.forEach((prd) => {
-            if (prd.id) {
-                const price = prd.price;
-                setPrice(price)
-            } else {
-                return
-            }
-        });
-    }, [id])
 
     return (
         <>
@@ -66,15 +53,15 @@ const CheckOut = () => {
                         )
                     })}
                     <hr className='w-[90%] h-1 mb-[20px] mt-[20px]' />
-                    <p className='tracking-[1px] flex w-[50%] justify-between items-center mb-[10px]'><span className='text-[#0000008a] text-[15px] '>Subtotal</span> <span>${totalSum}.00</span></p>
-                    <p className='tracking-[1px] flex w-full justify-start items-center mb-[10px] gap-12'><span className='text-[#0000008a] text-[15px]'>Shipping</span>
-                        <span className='text-xs text-wrap uppercase text-[#00000081]'>{totalSum > 75 ? 'Free Shipping for Over $75.00' : `Spend Over $${75 - totalSum}.00 more for free shipping`}</span></p>
+                    <p className='tracking-[1px] flex w-[50%] justify-between items-center mb-[10px]'><span className='text-[#0000008a] text-[15px] '>Subtotal</span> <span>{totalSum % 1 !== 0 ? '$' + totalSum : totalSum + .00}</span></p>
+                    <p className='tracking-[1px] flex w-[90%] justify-start items-center mb-[10px] gap-10'><span className='text-[#0000008a] text-[15px]'>Shipping</span>
+                        <span className='text-xs text-wrap uppercase text-[#00000081]'>{totalSum > 75 ? 'Eligible for free shipping' : `Spend Over $${(75 - totalSum).toFixed(2)} more for free shipping`}</span></p>
 
                     {totalSum < 75 ? <p className='tracking-[1px] flex w-[50%] justify-between items-center mb-[10px]'><span className='text-[#0000008a] text-[15px] '>VAT</span>
                         <span>${VAT}.00</span></p> : ""}
 
                     <p className='tracking-[1px] flex w-[50%] justify-between mb-[10px] items-center'><span className='text-[#0000008a] text-[15px] '>Total</span>
-                        <span>{totalSum > 75 ? `$${totalSum}.00` : `$${totalSum + VAT}.00`}</span></p>
+                        <span>{totalSum > 75 ? `$${totalSum}` : `$${(VAT + totalSum).toFixed(2)}`}</span></p>
                 </div>
             </div>
         </>

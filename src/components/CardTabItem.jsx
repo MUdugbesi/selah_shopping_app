@@ -32,10 +32,10 @@ const CartTabItem = (props) => {
     return (
         <div className='w-full h-[150px] mx-auto border-b-2 flex justify-between items-center'>
             <div className='flex justify-start items-center'>
-                <img src={detail.img} className='object-cover size-20' />
+                <img src={detail.img} className='object-contain size-20' />
                 <div className='font-lato'>
                     <p className='text-sm w-[30%] text-center mb-2'>{detail.name}</p>
-                    <p>{quantity} x <span className='text-[#00000087] font-[300]'>${detail.price}.00</span></p>
+                    <p>{quantity} x <span className='text-[#00000087] font-[300]'>${detail.price}</span></p>
                 </div>
             </div>
 

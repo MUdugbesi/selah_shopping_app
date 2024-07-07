@@ -13,8 +13,8 @@ const CardCheckout = (props) => {
 
     return (
         <div className='font-lato'>
-            <p className='text-[#0000006a] mb-2'>{detail.name} x{quantity}</p>
-            <p className='mb-2 text-[16px] font-bold'>${detail.price}.00</p>
+            <p className='text-[#0000006a] mb-2'>{detail.name} <span className='ml-1'>x{quantity}</span></p>
+            <p className='mb-2 text-[16px] font-bold'>${detail.price}</p>
         </div>
     )
 }

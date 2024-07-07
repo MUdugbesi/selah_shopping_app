@@ -49,9 +49,9 @@ const Details = () => {
             </p>
 
             <div className=' w-[60%] mx-auto h-[auto] grid grid-cols-2 mb-[20px] bg-white p-10'>
-                <img src={detail.img} className='h-96 w-[80%] mx-auto object-contain object-bottom drop-shadow-[0_40px_30px_#0007]' />
+                <img src={detail.img} className='h-96 w-[80%] mx-auto object-contain  object-bottom drop-shadow-[0_40px_30px_#0007]' />
                 <div className='p-2'>
-                    <p className='text-[60px] font-lato font-[100] opacity-50 pt-5'>${detail.price}.00</p>
+                    <p className='text-[60px] font-lato font-[100] opacity-50 pt-5'>${detail.price}</p>
                     <div className='flex w-full h-[40px] justify-start items-center relative mt-10'>
                         <span className='opacity-50 font-lato font-light text-[14px] mr-6 after:content-[""] after:absolute after:bottom-0 after:left-8 after:bg-text after:h-[90%] after:w-[1px] after:opacity-50 after:z-10 after:rounded-lg'>❤️</span>
                         <span className='uppercase text-sm tracking-wider'>{detail.name}</span>
