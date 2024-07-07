@@ -21,7 +21,17 @@ const ProductSlice = createSlice({
     name: 'product',
     initialState: {
         products: [
-            { id: uuid(), name: 'Black Adiddas Backpack', price: 39.00, img: BlackBag, slug: "black_backpack", description: 'They quickly darken in sunlight and fade back to clear indoors: protecting you from UV rays and filtering blue-violet light.' },
+            {
+                id: uuid(), name: 'Black Adiddas Backpack', price: 39.00, img: BlackBag, slug: "black_backpack", description: 'Addidas Black Backpack', keywords: ['bag', 'black', 'addidas', 'all'],
+                categories: ['male'],
+                class: 'all'
+            },
+            {
+                id: uuid(), name: 'Black Sunglass', price: 27.99, description: 'They quickly darken in sunlight and fade back to clear indoors: protecting you from UV rays and filtering blue-violet light',
+                slug: 'sunglass_black', img: BlackSunglass,
+                keywords: ['glass', 'black', 'fashion', 'gold', 'eyewear'],
+                categories: ['accessories', 'male']
+            },
 
             {
                 id: uuid(), name: 'Pink Chanel Bag', price: 25.99, description: 'Chanel Wallet Coin purse Brand',
@@ -29,13 +39,9 @@ const ProductSlice = createSlice({
                 keywords: ['Chanel', 'bag', 'pink', 'purse', 'female', 'models', 'rectangle', 'bags', 'shopping Bag'],
                 categories: ['female', 'accessories']
 
+
             },
-            {
-                id: uuid(), name: 'Black Sunglass', price: 27.99, description: 'They quickly darken in sunlight and fade back to clear indoors: protecting you from UV rays and filtering blue-violet light',
-                slug: 'sunglass_black', img: BlackSunglass,
-                keywords: ['unisex', 'glass', 'black', 'fashion', 'gold', 'eyewear'],
-                categories: ['unisex', 'accessories', 'male', 'female']
-            },
+
             {
                 id: uuid(), name: 'Green Chanel Bag', price: 40.99, description: 'Chanel Handbag Fashion Spring',
                 slug: 'green_bag_chanel', img: GreenBag,
@@ -53,8 +59,8 @@ const ProductSlice = createSlice({
             {
                 id: uuid(), name: 'Mirrored Sunglass', price: 27.99, description: 'They quickly darken in sunlight and fade back to clear indoors: protecting you from UV rays and filtering blue-violet light',
                 slug: 'sunglass_mirrored', img: MirrorSunglass,
-                keywords: ['unisex', 'glass', 'black', 'fashion', 'gold', 'eyewear'],
-                categories: ['unisex', 'accessories', 'male', 'female']
+                keywords: ['glass', 'black', 'fashion', 'gold', 'eyewear'],
+                categories: ['accessories', 'male',]
             },
             {
                 id: uuid(), name: 'LV Backpack', price: 45.99, description: 'Louis Vuitton Backpack Handbag Zipper',
@@ -112,7 +118,8 @@ const ProductSlice = createSlice({
             },
 
         ],
-        menuBar: false
+        menuBar: false,
+        searchBar: false,
     },
 
     reducers: {
@@ -122,21 +129,17 @@ const ProductSlice = createSlice({
             } else {
                 state.menuBar = false
             }
-        }
+        },
+        toggleSearchBar(state) {
+            if (state.searchBar === false) {
+                state.searchBar = true;
+            } else {
+                state.searchBar = false
+            }
+        },
+
     }
 })
 
-export const { toggleMenuBar } = ProductSlice.actions;
+export const { toggleMenuBar, toggleSearchBar } = ProductSlice.actions;
 export default ProductSlice.reducer;
-
-
-
-// [
-//     {
-//         id: uuid(), name: 'Pink Bag', price: 25, description: 'Chanel Wallet Coin purse Brand',
-//         slug: 'pink_bag_chanel', img: PinkBag,
-//         keywords: ['Chanel', , 'bag', 'pink', 'purse', 'female', 'models', 'rectangle', 'bags', 'shopping Bag'],
-//         categories: [female, accessories]
-
-//     }
-// ]

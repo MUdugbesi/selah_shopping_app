@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slider';
 import { ProductCard } from '../components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 const Home = () => {
     const products = useSelector(store => store.product.products);
     const [filter, setFilter] = useState(products);
-    const [toggleOther, setToggleOther] = useState(false)
+    const [toggleOther, setToggleOther] = useState(false);
 
-    const handleAccessories = (e) => {
+    const handleAccessories = () => {
         const accessories = []
         products.forEach((product) => {
             const { categories } = product;
@@ -20,14 +20,56 @@ const Home = () => {
                 }
             }
         })
-        e.target.classList.add('opacity-100')
-
         setFilter(accessories)
+
+    }
+    const handleMale = () => {
+        const male = []
+        products.forEach((product) => {
+            const { categories } = product;
+            if (categories) {
+                if (categories.includes('male')) {
+                    male.push(product)
+                }
+            }
+        })
+        setFilter(male)
+        console.log(filter)
+
+    }
+    const handleFemale = () => {
+        const female = []
+        products.forEach((product) => {
+            const { categories } = product;
+            if (categories) {
+                if (categories.includes('female')) {
+                    female.push(product)
+                }
+            }
+        })
+        setFilter(female)
+
+    }
+    const handleUnisex = () => {
+        const unisex = []
+        products.forEach((product) => {
+            const { categories } = product;
+            if (categories) {
+                if (categories.includes('unisex')) {
+                    unisex.push(product)
+                } else {
+                    return
+                }
+            }
+        })
+        setFilter(unisex)
+
     }
 
-    const handleAll = () => {
+    const handleAll = (e) => {
         setFilter(products)
-        e.target.classList.remove('opacity-50')
+        console.log(products)
+
     }
 
     const handleOthersDisplay = () => {
@@ -45,12 +87,13 @@ const Home = () => {
                 </p>
             </div>
 
-            <div className='hidden md:flex lg:w-[30%] md:w-[50%] mt-14 mb-14 h-auto mx-auto justify-evenly hover:cursor-pointer font-ibm-plex-sans font-[600]'>
-                <Link onClick={handleAll} >ALL</Link>
-                <Link onClick={handleAccessories}>ACCESSORIES</Link>
-                <Link>MALE</Link>
-                <Link>FEMALE</Link>
-                <Link>UNISEX</Link>
+            <div className='hidden md:flex lg:w-[30%] md:w-[50%] mt-14 mb-14 h-auto mx-auto justify-evenly hover:cursor-pointer font-ibm-plex-sans text-[#000000c3] font-[400] '>
+                <p onClick={handleAll} className={`hover:font-[600px] font-[900]`}>ALL</p>
+                <p onClick={handleAccessories} className={`hover:font-[600]`}>ACCESSORIES</p>
+                <p onClick={handleMale} className={`hover:font-[600]`}>MALE</p>
+                <p onClick={handleFemale} className={`hover:font-[600]`}>FEMALE</p>
+                <p onClick={handleUnisex} className={`hover:font-[600]`}>UNISEX</p>
+
             </div>
             <div className='w-[60%] flex flex-col md:hidden mt-14 mb-14 h-auto mx-auto justify-center items-center hover:cursor-pointer font-ibm-plex-sans font-[600] text-[#0000007b]'>
                 <div className='flex w-[100%] justify-evenly items-center pb-3'>
