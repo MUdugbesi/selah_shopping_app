@@ -26,7 +26,7 @@ const ProductSlice = createSlice({
             {
                 id: uuid(), name: 'Pink Chanel Bag', price: 25.99, description: 'Chanel Wallet Coin purse Brand',
                 slug: 'pink_bag_chanel', img: PinkBag,
-                keywords: ['Chanel', , 'bag', 'pink', 'purse', 'female', 'models', 'rectangle', 'bags', 'shopping Bag'],
+                keywords: ['Chanel', 'bag', 'pink', 'purse', 'female', 'models', 'rectangle', 'bags', 'shopping Bag'],
                 categories: ['female', 'accessories']
 
             },
@@ -72,7 +72,7 @@ const ProductSlice = createSlice({
                 id: uuid(), name: 'Cocktail Dress', price: 45.99, description: 'Evening gown Cocktail dress',
                 slug: 'cocktail_dress', img: CK_dress,
                 keywords: ['female', 'dress', 'blue', 'fashion', 'Gown'],
-                categories: ['female', 'accessories']
+                categories: ['female',]
             },
             {
                 id: uuid(), name: 'Black Shirt', price: 35.99, description: 'Black T-shirt',
@@ -96,19 +96,19 @@ const ProductSlice = createSlice({
                 id: uuid(), name: 'Nike Women Sneakers', price: 25.99, description: 'Nike Free Shoe Sneakers Running',
                 slug: 'nike_shoe', img: NikeShoeWomen,
                 keywords: ['female', 'shoe', 'outdoor', 'grey',],
-                categories: ['female', 'accessories']
+                categories: ['female',]
             },
             {
                 id: uuid(), name: 'Suede Men Shoe', price: 25.99, description: 'Oxford Men Suede Shoe - Footwear Brogue',
                 slug: 'oxford_shoe', img: OxfordMenShoe,
                 keywords: ['shoe', 'oxford', 'outdoor', 'black',],
-                categories: ['male', 'accessories']
+                categories: ['male',]
             },
             {
                 id: uuid(), name: 'Court shoe High-heeled', price: 25.99, description: 'Women leather Stiletto high-heel shoe',
                 slug: 'oxford_shoe', img: PinkHeel,
                 keywords: ['shoe', 'stiletto', 'outdoor', 'pink', 'fashion', 'leather', 'high-heel'],
-                categories: ['female', 'accessories']
+                categories: ['female',]
             },
 
         ],

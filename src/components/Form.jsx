@@ -8,7 +8,7 @@ const Form = () => {
     }
     return (
         <>
-            <form onSubmit={handleSubmit} className='flex flex-col gap-4 p-10'>
+            <form onSubmit={handleSubmit} className='flex flex-col gap-4 md:p-10 p-4'>
                 <div className='w-full h-auto flex gap-2'>
                     <input type='text' className='w-[50%] p-2 h-[60px] bg-[#00000016] placeholder:text-[black] placeholder:tracking-[4px] pl-[15px]' placeholder='FIRST NAME' />
                     <input type='text' className='w-[50%] h-[60px] bg-[#00000016] placeholder:text-[black] placeholder:tracking-[4px] pl-[15px]' placeholder='LAST NAME' />
