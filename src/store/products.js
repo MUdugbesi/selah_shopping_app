@@ -22,7 +22,7 @@ const ProductSlice = createSlice({
     initialState: {
         products: [
             {
-                id: uuid(), name: 'Black Adiddas Backpack', price: 39.00, img: BlackBag, slug: "black_backpack", description: 'Addidas Black Backpack', keywords: ['bag', 'black', 'addidas', 'all'],
+                id: uuid(), name: 'Black Adiddas Backpack', price: 39.99, img: BlackBag, slug: "black_backpack", description: 'Addidas Black Backpack', keywords: ['bag', 'black', 'addidas', 'all'],
                 categories: ['male'],
                 class: 'all'
             },

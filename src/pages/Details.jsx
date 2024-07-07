@@ -49,7 +49,7 @@ const Details = () => {
             </p>
 
             <div className='w-[80%] lg:w-[60%] mx-auto h-[auto] grid md:grid-cols-2 mb-[20px] bg-white p-10'>
-                <img src={detail.img} className='h-96 w-[80%] mx-auto object-contain  object-bottom lg:drop-shadow-[0_40px_30px_#0007] drop-shadow-[0_20px_20px_#0007]' />
+                <img src={detail.img} className='md:h-96 w-[80%] mx-auto object-contain  object-bottom lg:drop-shadow-[0_40px_30px_#0007] drop-shadow-[0_20px_20px_#0007]' />
                 <div className='p-2'>
                     <p className='text-[60px] font-lato font-[100] opacity-50 pt-5'>${detail.price}</p>
                     <div className='flex w-full h-[40px] justify-start items-center relative mt-10'>
