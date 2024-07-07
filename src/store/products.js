@@ -112,14 +112,21 @@ const ProductSlice = createSlice({
             },
 
         ],
-        checkout: []
+        menuBar: false
     },
 
     reducers: {
-
+        toggleMenuBar(state) {
+            if (state.menuBar === false) {
+                state.menuBar = true;
+            } else {
+                state.menuBar = false
+            }
+        }
     }
 })
 
+export const { toggleMenuBar } = ProductSlice.actions;
 export default ProductSlice.reducer;
 
 
