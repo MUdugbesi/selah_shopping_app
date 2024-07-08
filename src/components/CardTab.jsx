@@ -49,7 +49,7 @@ const CardTabs = () => {
 
     return (
         <>
-            <div className={`fixed top-0 right-0 bg-[#fff] w-[400px] h-[100vh] overflow-x-hidden flex flex-col pb-3 z-20 ${statusTab === false ? 'hidden' : 'flex'}`}>
+            <div className={`fixed top-0 right-0 bg-[#fff] w-full md:w-[500px] h-[100vh] overflow-x-hidden flex flex-col pb-3 z-20 ${statusTab === false ? 'hidden' : 'flex'}`}>
                 <div className='flex font-lato w-[70%] mx-auto justify-between mt-[60px]'>
                     <h2 className='tracking-[4px] font-[400]'>{totalQty} ITEMS IN CART</h2>
                     <span onClick={handleCloseTab} className='hover:cursor-pointer active:text-[red]'>Close</span>

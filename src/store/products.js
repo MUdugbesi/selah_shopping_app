@@ -120,6 +120,7 @@ const ProductSlice = createSlice({
         ],
         menuBar: false,
         searchBar: false,
+        filterSearch: []
     },
 
     reducers: {
@@ -138,8 +139,22 @@ const ProductSlice = createSlice({
             }
         },
 
+        handlefilter(state, action) {
+            state.products.forEach((product) => {
+                const { keywords } = product;
+                if (keywords) {
+                    if (keywords.includes('bag')) {
+                        state.filterSearch.push(product)
+                    }
+                }
+            })
+
+            state.products = state.filterSearch;
+            
+        }
+
     }
 })
 
-export const { toggleMenuBar, toggleSearchBar } = ProductSlice.actions;
+export const { toggleMenuBar, toggleSearchBar, handlefilter } = ProductSlice.actions;
 export default ProductSlice.reducer;

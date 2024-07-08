@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeQuantity } from '../store/cart';
+import { RiDeleteBin6Line } from "react-icons/ri";
 
-import { MdDelete } from "react-icons/md";
 
 const CartTabItem = (props) => {
     const { productId, quantity } = props.data;
@@ -16,10 +16,12 @@ const CartTabItem = (props) => {
     }, [productId]);
 
     const handleMinusQty = () => {
-        dispatch(changeQuantity({
-            productId: productId,
-            quantity: quantity - 1 < 1 ? 0 : quantity - 1
-        }))
+        if (quantity > 1) {
+            dispatch(changeQuantity({
+                productId: productId,
+                quantity: quantity - 1 < 1 ? 0 : quantity - 1
+            }))
+        }
 
     }
     const handlePlusQty = () => {
@@ -29,20 +31,33 @@ const CartTabItem = (props) => {
         }))
     }
 
+    const handleDeteleItem = () => {
+        dispatch(changeQuantity({
+            productId: productId,
+            quantity: 0
+        }))
+    }
+
+
     return (
         <div className='w-full h-[150px] mx-auto border-b-2 flex justify-between items-center'>
-            <div className='flex justify-start items-center w-full'>
+            <div className='flex justify-start items-start w-[80%]'>
                 <img src={detail.img} className='object-contain size-20' />
                 <div className='font-lato w-[50%] flex flex-col items-center'>
                     <p className='text-sm w-full text-center mb-2'>{detail.name}</p>
                     <p>{quantity} x <span className='text-[#00000087] font-[300]'>${detail.price}</span></p>
+
+                    <div className='rounded-l-sm w-[50%] lg:w-[50%] flex justify-evenly h-[35px] items-center gap-1 font-lato bg-[#00000018] hover:cursor-pointer hover:opacity-80 font-[100] mt-3'>
+                        <span className={`md:text-[25px] text-sm`} onClick={handleMinusQty}>-</span>
+                        <span className='md:text-[16px] text-sm'>{quantity}</span>
+                        <span className='md:text-[20px] text-sm' onClick={handlePlusQty}>+</span>
+                    </div>
                 </div>
+
             </div>
 
-            <div className='rounded-l-sm w-[30%] lg:w-[40%] flex justify-evenly h-[35px] items-center gap-1 font-lato bg-[#00000018] hover:cursor-pointer hover:opacity-80'>
-                <span className='md:text-[25px] text-sm' onClick={handleMinusQty}>{quantity > 1 ? '-' : <MdDelete className='size-4'/>}</span>
-                <span className='md:text-[16px] text-sm'>{quantity}</span>
-                <span className='md:text-[20px] text-sm' onClick={handlePlusQty}>+</span>
+            <div className=''>
+                <RiDeleteBin6Line className='size-6' onClick={handleDeteleItem} />
             </div>
         </div>
     )

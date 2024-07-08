@@ -9,6 +9,11 @@ const Home = () => {
     const products = useSelector(store => store.product.products);
     const [filter, setFilter] = useState(products);
     const [toggleOther, setToggleOther] = useState(false);
+    const filteredSearch = useSelector(store => store.product.filterSearch);
+
+    const handleFilterSeearch = () => {
+        setFilter(filteredSearch)
+    }
 
     const handleAccessories = () => {
         const accessories = []

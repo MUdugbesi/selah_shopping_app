@@ -6,15 +6,20 @@ import { FiSearch } from 'react-icons/fi';
 import { MdMenu, MdOutlineClose, MdShoppingCart } from 'react-icons/md';
 
 import { toggleStatusBar } from '../store/cart';
-import { toggleMenuBar } from '../store/products';
-import { toggleSearchBar } from '../store/products';
+import { toggleMenuBar, toggleSearchBar, handlefilter } from '../store/products';
+
 
 const Header = () => {
   const [totalQty, setTotalQty] = useState(0);
   const carts = useSelector(store => store.cart.items);
   const dispatch = useDispatch();
   const menuBar = useSelector(store => store.product.menuBar)
-  const searchBar = useSelector(store => store.product.searchBar)
+  const searchBar = useSelector(store => store.product.searchBar);
+  const filterSearch = useSelector(store => store.product.filterSearch)
+  const products = useSelector(store => store.product.products)
+  const [val, setVal] = useState('');
+  const [allProduct, setAllProduct] = useState(filterSearch)
+
 
   useEffect(() => {
     let total = 0;
@@ -33,6 +38,18 @@ const Header = () => {
 
   const handleSearchBar = () => {
     dispatch(toggleSearchBar())
+  }
+
+  const handleInputVal = (e) => {
+    setVal(e.target.value)
+
+  }
+
+  
+
+  const handleInputSearch = () => {
+    dispatch(handlefilter())
+    console.log(filterSearch)
   }
 
 
@@ -60,8 +77,8 @@ const Header = () => {
 
 
       {searchBar ? <div className='border-2 border-[black] w-[40%] md:w-[30%] flex items-center rounded-md p-1 justify-evenly md:justify-between transition-all ease-linear delay-75 duration-500' onMouseLeave={handleSearchBar}>
-        <FiSearch size={20} className='hover md:flex' onClick={handleSearchBar} />
-        <input className='h-[25px] md:h-[32px] w-full md:w-[90%] rounded-md pl-3 outline-none text-xs md:text-[16px]' />
+        <FiSearch size={20} className='hover md:flex' onClick={handleInputSearch} />
+        <input className='h-[25px] md:h-[32px] w-full md:w-[90%] rounded-md pl-3 outline-none text-xs md:text-[16px]' value={val} onChange={handleInputVal} />
         <MdOutlineClose size={20} className='hover flex' onClick={handleSearchBar} />
       </div> : ''
 
@@ -72,7 +89,7 @@ const Header = () => {
         {!searchBar ? <FiSearch size={20} className='hover  hidden md:flex' onMouseEnter={handleSearchBar} /> : ''}
         <MdShoppingCart size={20} className='hover' onClick={handleStatusTab} />
         {!menuBar ? <MdMenu size={20} className='hover flex md:hidden' onClick={hanldeMenuBar} /> : <MdOutlineClose size={20} className='hover flex md:hidden' onClick={hanldeMenuBar} />}
-        <p className={`text-white bg-red-600 rounded-full w-3 h-3 md:w-4 md:h-4 flex justify-center items-center absolute top-[24px] md:right-[15px] text-[10px] md:text-[12px] font-lato ${searchBar ? 'md:left-[5px]' : ''}`}>{totalQty}</p>
+        <p className={`text-white bg-red-600 rounded-full w-3 h-3 md:w-4 md:h-4 flex justify-center items-center absolute top-[24px] md:right-[0px] max-sm:left-[15px] text-[10px] md:text-[12px] font-lato ${searchBar ? 'md:left-[20px]' : ''}`}>{totalQty}</p>
       </div>
     </div >
   )
