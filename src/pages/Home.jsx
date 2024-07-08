@@ -98,13 +98,13 @@ const Home = () => {
             <div className='w-[60%] flex flex-col md:hidden mt-14 mb-14 h-auto mx-auto justify-center items-center hover:cursor-pointer font-ibm-plex-sans font-[600] text-[#0000007b]'>
                 <div className='flex w-[100%] justify-evenly items-center pb-3'>
                     <Link onClick={handleAll} >ALL</Link>
-                    <Link>MALE</Link>
-                    <Link>FEMALE</Link>
+                    <Link onClick={handleMale}>MALE</Link>
+                    <Link onClick={handleFemale}>FEMALE</Link>
                     {!toggleOther ? <MdKeyboardArrowDown width={20} className='hover' onClick={handleOthersDisplay} /> : <MdKeyboardArrowUp width={20} className='hover' onClick={handleOthersDisplay} />}
                 </div>
                 <div className={`${toggleOther ? 'flex w-[100%] justify-evenly items-center' : 'hidden'}`}>
                     <Link onClick={handleAccessories} className='opacity-100'>ACCESSORIES</Link>
-                    <Link>UNISEX</Link>
+                    <Link onClick={handleUnisex}>UNISEX</Link>
                 </div>
             </div>
 
