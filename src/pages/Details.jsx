@@ -40,7 +40,7 @@ const Details = () => {
 
     return (
         <>
-            <p className='font-ibm-plex-sans text-[13px] flex w-[40%] md:w-[25%] lg:w-[15%] mx-auto justify-evenly font-light mt-[60px] mb-[60px]'>
+            <p className='font-ibm-plex-sans text-[13px] flex w-[40%] md:w-[25%] lg:w-[15%] mx-auto justify-evenly font-light mt-[60px] mb-[60px] text-[#0000007a]'>
                 <span>Home</span>
                 <span>/</span>
                 <span>Shop</span>
@@ -48,8 +48,11 @@ const Details = () => {
                 <span>Product</span>
             </p>
 
+
             <div className='w-[80%] lg:w-[60%] mx-auto h-[auto] grid md:grid-cols-2 mb-[20px] bg-white p-10'>
-                <img src={detail.img} className='md:h-96 w-[80%] mx-auto object-contain  object-bottom lg:drop-shadow-[0_40px_30px_#0007] drop-shadow-[0_20px_20px_#0007]' />
+                <div className='flex justify-center items-center'>
+                    <img src={detail.img} className='w-[455px] h-[389px] mx-auto object-contain object-center lg:drop-shadow-[0_40px_30px_#0007] drop-shadow-[0_20px_20px_#0007]' />
+                </div>
                 <div className='p-2'>
                     <p className='text-[60px] font-lato font-[100] opacity-50 pt-5'>${detail.price}</p>
                     <div className='flex w-full h-[40px] justify-start items-center relative mt-10'>

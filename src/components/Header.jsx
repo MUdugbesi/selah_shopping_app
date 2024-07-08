@@ -38,20 +38,20 @@ const Header = () => {
 
   return (
     <div className='w-full h-[120px] bg-white flex items-center md:justify-evenly justify-between p-5 md:p-0 '>
-      <h1 className='font-italiana text-[30px] animate-pulse'><Link to='/' >SELAH</Link></h1>
+      <h1 className='font-italiana text-[30px]'><Link to='/' >SELAH</Link></h1>
       <div className='lg:w-[20%] md:w-[30%] md:flex justify-evenly p-3 font-ibm-plex-sans font-light hidden'>
-        <Link to='/' className='nav_after'>HOME</Link>
-        <Link to='/' className='nav_after'>SHOP</Link>
-        <Link to='/' className='nav_after'>FAQ</Link>
+        <Link to='/' className='nav_after active:text-[red]'>HOME</Link>
+        <Link to='/' className='nav_after active:text-[red]'>SHOP</Link>
+        <Link to='/' className='nav_after active:text-[red]'>FAQ</Link>
       </div>
 
       {
         menuBar === true ?
           <div className='bg-[white] w-[60%] h-screen absolute top-[100px] right-0 z-10 p-10 font-lato flex flex-col'>
             <div className='flex flex-col w-[60%] items-center mx-auto gap-5 font-bold'>
-              <Link to='/' className='relative after:content-[""] after:w-full after:h-1 after:border-2 after:border-[black] after:absolute after:rounded-md  after:right-0 after:bottom-[-2px] after:hidden hover:after:flex'>HOME</Link>
-              <Link to='/' className='hover:underline'>SHOP</Link>
-              <Link to='/' className='hover:underline'>FAQ</Link>
+              <Link to='/' className='nav_after active:text-[red]'>HOME</Link>
+              <Link to='/' className='nav_after active:text-[red]'>SHOP</Link>
+              <Link to='/' className='nav_after active:text-[red]'>FAQ</Link>
             </div>
             {!searchBar ? <FiSearch size={20} className='hover mx-auto mt-3' onClick={handleSearchBar} /> : <FiSearch size={20} className='hover mx-auto mt-3' />}
           </div>

@@ -31,6 +31,10 @@ const cartSlice = createSlice({
 
         },
 
+        emptyCart(state) {
+            state.items = []
+        },
+
         toggleStatusBar(state) {
             if (state.statusTab === false) {
                 state.statusTab = true;
@@ -42,5 +46,5 @@ const cartSlice = createSlice({
 })
 
 
-export const { addTocart, changeQuantity, toggleStatusBar } = cartSlice.actions;
+export const { addTocart, changeQuantity, toggleStatusBar, emptyCart } = cartSlice.actions;
 export default cartSlice.reducer;

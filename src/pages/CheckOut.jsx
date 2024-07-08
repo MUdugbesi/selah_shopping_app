@@ -34,19 +34,20 @@ const CheckOut = () => {
 
     return (
         <>
-            <p className='font-ibm-plex-sans text-[13px] flex md:w-[15%] w-1/3 mx-auto justify-evenly font-light mt-[85px] mb-[50px]'>
+            <h1 className='font-ibm-plex-sans md:text-[50px] text-[30px] md:tracking-[12px] font-[200] animate-pulse text-center mt-[80px]'>CHECKOUT</h1>
+            <p className='font-ibm-plex-sans text-[10px] md:text-[13px] flex md:w-[14%] w-1/3 mx-auto justify-evenly font-light mt-[10px] mb-[70px]'>
                 <span>Home</span>
                 <span>/</span>
                 <span>Checkout</span>
             </p>
             <div className='md:w-[70%] max-sm:p-5 mx-auto h-[auto] grid lg:grid-cols-[65%_32%] gap-14 mb-[20px] font-lato'>
                 <div className='w-full bg-[#fff] h-auto mx-auto'>
-                    <p className='text-xl text-center mt-[50px] mb-[20px] tracking-[5px]'>BILLING DETAILS</p>
+                    <p className='md:text-xl text-center mt-[50px] mb-[20px] tracking-[5px]'>BILLING DETAILS</p>
                     <Form />
                 </div>
 
                 <div className='w-full bg-[#fff] max-h-[auto] h-[500px] mx-auto pl-10 md:flex flex-col hidden'>
-                    <p className='text-xl mt-[50px] mb-[20px] pr-5 tracking-[5px] uppercase'>Your Order</p>
+                    <p className='md:text-xl mt-[50px] mb-[20px] pr-5 tracking-[5px] uppercase'>Your Order</p>
                     {carts.map((cart, key) => {
                         return (
                             <CheckoutCard data={cart} key={key} />

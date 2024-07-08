@@ -79,8 +79,8 @@ const Home = () => {
     return (
         <div className='w-full h-auto'>
             <div className='w-[50%] md:w-[30%] lg:w-[10%] mx-auto mt-[40px] md:mt-[85px] flex flex-col max-lg:items-center'>
-                <h1 className='font-ibm-plex-sans text-[50px] text-justify tracking-[12px] font-[200]'>SHOP</h1>
-                <p className='font-ibm-plex-sans text-[13px] flex w-[80%] mx-auto justify-evenly font-light'>
+                <h1 className='font-ibm-plex-sans text-[50px] text-justify tracking-[12px] font-[200] animate-pulse'>SHOP</h1>
+                <p className='font-ibm-plex-sans text-[13px] flex w-[80%] mx-auto justify-evenly font-light text-[#0000007a]'>
                     <span>Home</span>
                     <span>/</span>
                     <span>Shop</span>
@@ -108,7 +108,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-6 lg:gap-10 w-full p-10 md:p-0 lg:w-[80%] md:w-[90%] mx-auto h-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-5 lg:gap-10 w-[90%] p-10 md:p-0 lg:w-[80%] md:w-[95%] mx-auto h-auto'>
 
                 {filter.map((product, key) => {
                     return (

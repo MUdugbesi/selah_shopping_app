@@ -18,17 +18,18 @@ const Card = (props) => {
     }
     return (
         <>
-            <div className='w-full h-[auto] flex flex-col mx-auto pb-[30px] bg-white rounded-lg p-5 shadow-md shadow-button justify-evenly'>
-                <Link to={slug}>
-                    <img src={img} className='w-[60%] object-contain object-center mx-auto drop-shadow-[0_80px_30px_#0007] bg-transparent' />
-                </Link>
-                <div className='flex flex-col w-full h-[50px] justify-start relative mt-5 pl-10'>
+            <div className='w-full h-[400px] flex flex-col mx-auto pb-[10px] bg-white rounded-xl p-5 shadow-sm shadow-[white] justify-evenly items-center'>
+                <div className='h-[auto] w-[300px] flex justify-center items-center'>
+                    <Link to={slug}>
+                        <img src={img} className='w-[199px] h-[164px] object-contain object-center mx-auto drop-shadow-[0_80px_30px_#0007] bg-transparent' />
+                    </Link>
+                </div>
+                <div className='flex flex-col w-full h-[50px] justify-start relative mt-5 pl-5'>
                     <span className='text-sm tracking-wider'>{name}</span>
                     <span className='font-lato font-[300]'>${price}</span>
                 </div>
-                <div>
-                    <button className='flex w-[80%] h-[40px] font-lato mx-auto gap-3 justify-center items-center bg-button p-2 rounded-xl text-sm text-white mt-5 hover:cursor-pointer hover:opacity-95 active:text-red-600' onClick={handleAddToCart}><FaCartPlus size={24} color='#fff' />Add to Cart</button>
-
+                <div className='w-[82%]'>
+                    <button className='flex w-full h-[40px] font-lato mx-auto gap-3 justify-center items-center bg-button p-2 rounded-xl text-[12px] md:text-sm text-white mt-5 hover:cursor-pointer hover:opacity-95 active:text-red-600' onClick={handleAddToCart}><FaCartPlus color='#fff' className='size-3 md:size-4 lg:size-5'/>Add to Cart</button>
                 </div>
             </div>
         </>

@@ -28,6 +28,10 @@
     @apply relative before:absolute before:content-[""] before:w-[0] before:h-0 before:bottom-[-2px] hover:before:w-full hover:after:h-[1px] before:border-2 before:border-white hover:before:border-[#00000067] before:rounded-md before:transition-all before:ease-linear before:delay-75 before:duration-500
   }
 
+  .input {
+    @apply w-full h-[60px] bg-[#00000016] placeholder:text-[black] placeholder:tracking-[4px] pl-[15px]
+  }
+
   /* .active{
     @apply font-[600]
   } */

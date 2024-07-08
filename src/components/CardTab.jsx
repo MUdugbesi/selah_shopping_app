@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleStatusBar } from '../store/cart';
+import { toggleStatusBar, emptyCart } from '../store/cart';
 import CartTabItem from './CardTabItem';
 import { Link } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ const CardTabs = () => {
             const { productId, quantity } = cart;
             const pd = products.findIndex((prd) => prd.id === productId);
             const price = products[pd].price
-            inCart.push(price*quantity)
+            inCart.push(price * quantity)
         });
         for (let i = 0; i < inCart.length; i++) {
             sum += inCart[i]
@@ -39,6 +39,10 @@ const CardTabs = () => {
 
     const handleCloseTab = () => {
         dispatch(toggleStatusBar())
+    }
+
+    const handleEmptyCart = () => {
+        dispatch(emptyCart())
     }
 
 
@@ -63,7 +67,7 @@ const CardTabs = () => {
                 <p className='font-lato text-center text-sm mt-[50px] text-[#0000008b]'>Subtotal: <span>${totalSum}</span></p>
 
                 <div className={`flex flex-col p-4 gap-1 w-[80%] mx-auto mb-5 mt-4 ${carts.length ? 'flex' : 'hidden'}`}>
-                    <button className='bg-[#9b9999b1] text-black text-[12px] w-full h-[60px]'>VIEW CART</button>
+                    <button className='bg-[#9b9999b1] text-black text-[12px] w-full h-[60px]' onClick={handleEmptyCart}>EMPTY CART</button>
                     <Link to='/checkout' className='bg-black text-white text-[12px] h-[60px] flex justify-center'><button onClick={handleCloseTab}>CHECKOUT</button></Link>
                 </div>
             </div>
