@@ -7,6 +7,7 @@ import { CheckoutCard } from '../components';
 const CheckOut = () => {
     const carts = useSelector(store => store.cart.items);
     const products = useSelector(store => store.product.products)
+    const statusTab = useSelector(store => store.cart.statusTab)
     const [totalQty, setTotalQty] = useState(0);
     const [totalSum, setTotalSum] = useState(0);
     const VAT = 15;
@@ -33,7 +34,7 @@ const CheckOut = () => {
 
 
     return (
-        <>
+        <div className={`${!statusTab ? 'opacity-100' : 'opacity-50'}`}>
             <h1 className='font-ibm-plex-sans md:text-[50px] text-[30px] md:tracking-[12px] font-[200] animate-pulse text-center mt-[80px]'>CHECKOUT</h1>
             <p className='font-ibm-plex-sans text-[10px] md:text-[13px] flex md:w-[14%] w-1/3 mx-auto justify-evenly font-light mt-[10px] mb-[70px]'>
                 <span>Home</span>
@@ -65,7 +66,7 @@ const CheckOut = () => {
                         <span>{totalSum > 75 ? `$${totalSum}` : `$${(VAT + totalSum).toFixed(2)}`}</span></p>
                 </div>
             </div>
-        </>
+        </div>
 
     )
 }

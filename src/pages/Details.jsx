@@ -10,8 +10,9 @@ const Details = () => {
     const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const products = useSelector(store => store.product.products);
+    const statusTab = useSelector(store => store.cart.statusTab)
 
-    const products = useSelector(store => store.product.products)
 
     useEffect(() => {
         const findDetails = products.filter((pd) => pd.slug === slug);
@@ -23,7 +24,7 @@ const Details = () => {
     }, [slug])
 
     const handleMinusQty = () => {
-        setQuantity(quantity - 1 < 1 ? 0 : quantity - 1)
+        setQuantity(quantity - 1 < 1 ? 1 : quantity - 1)
 
     }
     const handlePlusQty = () => {
@@ -39,7 +40,7 @@ const Details = () => {
 
 
     return (
-        <>
+        <div className={`${!statusTab ? 'opacity-100' : 'opacity-50'}`}>
             <p className='font-ibm-plex-sans text-[13px] flex w-[40%] md:w-[25%] lg:w-[15%] mx-auto justify-evenly font-light mt-[60px] mb-[60px] text-[#0000007a]'>
                 <span>Home</span>
                 <span>/</span>
@@ -70,7 +71,7 @@ const Details = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

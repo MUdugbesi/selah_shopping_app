@@ -6,20 +6,17 @@ import { FiSearch } from 'react-icons/fi';
 import { MdMenu, MdOutlineClose, MdShoppingCart } from 'react-icons/md';
 
 import { toggleStatusBar } from '../store/cart';
-import { toggleMenuBar, toggleSearchBar, handlefilter } from '../store/products';
+import { toggleMenuBar, toggleSearchBar } from '../store/products';
 
 
-const Header = () => {
+const Header = (props) => {
+  const { val, handleInputChange, handleSearchFilter, handleClearSearch } = props;
   const [totalQty, setTotalQty] = useState(0);
   const carts = useSelector(store => store.cart.items);
   const dispatch = useDispatch();
   const menuBar = useSelector(store => store.product.menuBar)
   const searchBar = useSelector(store => store.product.searchBar);
-  const filterSearch = useSelector(store => store.product.filterSearch)
-  const products = useSelector(store => store.product.products)
-  const [val, setVal] = useState('');
-  const [allProduct, setAllProduct] = useState(filterSearch)
-
+  const statusTab = useSelector(store => store.cart.statusTab);
 
   useEffect(() => {
     let total = 0;
@@ -34,27 +31,17 @@ const Header = () => {
 
   const handleStatusTab = () => {
     dispatch(toggleStatusBar())
+    console.log('clicked')
   }
 
   const handleSearchBar = () => {
     dispatch(toggleSearchBar())
   }
 
-  const handleInputVal = (e) => {
-    setVal(e.target.value)
-
-  }
-
-  
-
-  const handleInputSearch = () => {
-    dispatch(handlefilter())
-    console.log(filterSearch)
-  }
 
 
   return (
-    <div className='w-full h-[120px] bg-white flex items-center md:justify-evenly justify-between p-5 md:p-0 '>
+    <div className={`w-full h-[120px] bg-white flex items-center md:justify-evenly justify-between p-5 md:p-0 ${!statusTab ? 'opacity-100' : 'opacity-50'}`}>
       <h1 className='font-italiana text-[30px]'><Link to='/' >SELAH</Link></h1>
       <div className='lg:w-[20%] md:w-[30%] md:flex justify-evenly p-3 font-ibm-plex-sans font-light hidden'>
         <Link to='/' className='nav_after active:text-[red]'>HOME</Link>
@@ -77,9 +64,9 @@ const Header = () => {
 
 
       {searchBar ? <div className='border-2 border-[black] w-[40%] md:w-[30%] flex items-center rounded-md p-1 justify-evenly md:justify-between transition-all ease-linear delay-75 duration-500' onMouseLeave={handleSearchBar}>
-        <FiSearch size={20} className='hover md:flex' onClick={handleInputSearch} />
-        <input className='h-[25px] md:h-[32px] w-full md:w-[90%] rounded-md pl-3 outline-none text-xs md:text-[16px]' value={val} onChange={handleInputVal} />
-        <MdOutlineClose size={20} className='hover flex' onClick={handleSearchBar} />
+        <FiSearch size={20} className='hover md:flex' onClick={handleSearchFilter} />
+        <input className='h-[25px] md:h-[32px] w-full md:w-[90%] rounded-md pl-3 outline-none text-xs md:text-[16px]' value={val} onChange={handleInputChange} />
+        <MdOutlineClose size={20} className='hover flex' onClick={handleClearSearch} />
       </div> : ''
 
       }

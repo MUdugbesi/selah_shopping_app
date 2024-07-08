@@ -13,8 +13,15 @@ import BlackHoodie from '../assets/images/black_hoodie.png';
 import WhiteTop from '../assets/images/white_top.png';
 import BlackShirt from '../assets/images/black_shirt.png';
 import PinkHeel from '../assets/images/pink_heel.png';
-import OxfordMenShoe from '../assets/images/oxford_men_shoe.png'
-import NikeShoeWomen from '../assets/images/nike_shoe_women.png'
+import OxfordMenShoe from '../assets/images/oxford_men_shoe.png';
+import NikeShoeWomen from '../assets/images/nike_shoe_women.png';
+import AddidasShoe from '../assets/images/addidas_shoe.png';
+import CapMen from '../assets/images/cap_men.png';
+import MenWatch from '../assets/images/men_watch.png';
+import PokaDotDress from '../assets/images/poka_dot_dress.png';
+import SocksColoured from '../assets/images/socks_coloured.png';
+import WinterJacket from '../assets/images/winter_jacket.png';
+import WomenWatch from '../assets/images/women_watch.png';
 
 
 const ProductSlice = createSlice({
@@ -65,7 +72,7 @@ const ProductSlice = createSlice({
             {
                 id: uuid(), name: 'LV Backpack', price: 45.99, description: 'Louis Vuitton Backpack Handbag Zipper',
                 slug: 'lv_backpack', img: LVbag,
-                keywords: ['bag', 'purse', 'female', 'rectangle', 'luggage Bags', 'leather', 'blue',],
+                keywords: ['bag', 'purse', 'female', 'rectangle', 'luggage Bags', 'leather', 'brown',],
                 categories: ['female', 'accessories']
             },
             {
@@ -89,7 +96,7 @@ const ProductSlice = createSlice({
             {
                 id: uuid(), name: 'White Top', price: 24.99, description: 'White Crew - Neck shirt',
                 slug: 'white_shirt', img: WhiteTop,
-                keywords: ['Clothing', 'shirt', 'polo', 'black', 'formal Wear',],
+                keywords: ['Clothing', 'shirt', 'polo', 'white', 'formal Wear',],
                 categories: ['male']
             },
             {
@@ -116,11 +123,30 @@ const ProductSlice = createSlice({
                 keywords: ['shoe', 'stiletto', 'outdoor', 'pink', 'fashion', 'leather', 'high-heel'],
                 categories: ['female',]
             },
+            {
+                id: uuid(), name: 'The North Face Coat', price: 45.99, description: 'The North Face Coat - Jacket Polar', slug: 'north_face_jacket', img: WinterJacket, keywords: ['fleece', 'outerwear', 'jacket', 'black', 'puffer', 'north Face'], categories: ['unisex', 'female', 'male']
+            },
+            {
+                id: uuid(), name: 'Air Jordan Shoe', price: 105.99, description: 'Air Jordan Shoe Sneakers Nike Adidas', slug: 'air_jordan', img: AddidasShoe, keywords: ['jordan', 'white', 'basketball', 'outdoor', 'shoe'], categories: ['male']
+            },
+            {
+                id: uuid(), name: 'Coloured Socks', price: 15.99, description: 'Coloured Socks', slug: 'socks_coloured', img: SocksColoured, keywords: ['socks', 'shoe', 'clothing'], categories: ['male', 'accessories']
+            },
+            {
+                id: uuid(), name: 'Polka dot Blouse', price: 35.99, description: 'Polka Dot Blouse', slug: 'poka_dot_dress', img: PokaDotDress, keywords: ['shirt', 'clothing', 'bezel', 'blouse', 'white', 'fashion', 'polka'], categories: ['female']
+            },
+            {
+                id: uuid(), name: 'Men Watch', price: 55.99, description: 'Round silver - colored chronograph watch with link bracelets', slug: 'men_watch_silver', img: MenWatch, keywords: ['watches', 'watch', 'accessory'], categories: ['accesories', 'male']
+            },
+            {
+                id: uuid(), name: 'Ladies Watch', price: 55.99, description: 'Kiev Swatch Clock Bracelet - Anne Klein', slug: 'ladies_watch_pink', img: WomenWatch, keywords: ['watches', 'watch', 'pink'], categories: ['accesories', 'female']
+            },
+
 
         ],
         menuBar: false,
         searchBar: false,
-        filterSearch: []
+
     },
 
     reducers: {
@@ -139,22 +165,8 @@ const ProductSlice = createSlice({
             }
         },
 
-        handlefilter(state, action) {
-            state.products.forEach((product) => {
-                const { keywords } = product;
-                if (keywords) {
-                    if (keywords.includes('bag')) {
-                        state.filterSearch.push(product)
-                    }
-                }
-            })
-
-            state.products = state.filterSearch;
-            
-        }
-
     }
 })
 
-export const { toggleMenuBar, toggleSearchBar, handlefilter } = ProductSlice.actions;
+export const { toggleMenuBar, toggleSearchBar } = ProductSlice.actions;
 export default ProductSlice.reducer;

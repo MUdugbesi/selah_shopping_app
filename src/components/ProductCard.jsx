@@ -21,7 +21,7 @@ const Card = (props) => {
             <div className='w-full h-[400px] flex flex-col mx-auto pb-[10px] bg-white rounded-xl p-5 shadow-sm shadow-[white] justify-evenly items-center'>
                 <div className='h-[auto] w-[300px] flex justify-center items-center'>
                     <Link to={slug}>
-                        <img src={img} className='w-[199px] h-[164px] object-contain object-center mx-auto drop-shadow-[0_80px_30px_#0007] bg-transparent' />
+                        <img src={img} className='w-[199px] h-[164px] object-contain object-center mx-auto md:drop-shadow-[0_80px_30px_#0007] bg-transparent' />
                     </Link>
                 </div>
                 <div className='flex flex-col w-full h-[50px] justify-start relative mt-5 pl-5'>

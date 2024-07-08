@@ -49,7 +49,7 @@ const CardTabs = () => {
 
     return (
         <>
-            <div className={`fixed top-0 right-0 bg-[#fff] w-full md:w-[500px] h-[100vh] overflow-x-hidden flex flex-col pb-3 z-20 ${statusTab === false ? 'hidden' : 'flex'}`}>
+            <div className={`fixed top-0 right-0 bg-[#fff] w-full md:w-[500px] h-[100vh] overflow-x-hidden flex flex-col pb-3 z-20 ${!statusTab ? 'hidden' : 'flex'}`}>
                 <div className='flex font-lato w-[70%] mx-auto justify-between mt-[60px]'>
                     <h2 className='tracking-[4px] font-[400]'>{totalQty} ITEMS IN CART</h2>
                     <span onClick={handleCloseTab} className='hover:cursor-pointer active:text-[red]'>Close</span>
@@ -66,7 +66,7 @@ const CardTabs = () => {
 
                 <p className='font-lato text-center text-sm mt-[50px] text-[#0000008b]'>Subtotal: <span>${totalSum}</span></p>
 
-                <div className={`flex flex-col p-4 gap-1 w-[80%] mx-auto mb-5 mt-4 ${carts.length ? 'flex' : 'hidden'}`}>
+                <div className={`flex flex-col p-4 gap-4 w-[80%] mx-auto mb-5 mt-4 ${carts.length ? 'flex' : 'hidden'}`}>
                     <button className='bg-[#9b9999b1] text-black text-[12px] w-full h-[60px]' onClick={handleEmptyCart}>EMPTY CART</button>
                     <Link to='/checkout' className='bg-black text-white text-[12px] h-[60px] flex justify-center'><button onClick={handleCloseTab}>CHECKOUT</button></Link>
                 </div>

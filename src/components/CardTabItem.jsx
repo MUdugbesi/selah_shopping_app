@@ -47,10 +47,10 @@ const CartTabItem = (props) => {
                     <p className='text-sm w-full text-center mb-2'>{detail.name}</p>
                     <p>{quantity} x <span className='text-[#00000087] font-[300]'>${detail.price}</span></p>
 
-                    <div className='rounded-l-sm w-[50%] lg:w-[50%] flex justify-evenly h-[35px] items-center gap-1 font-lato bg-[#00000018] hover:cursor-pointer hover:opacity-80 font-[100] mt-3'>
-                        <span className={`md:text-[25px] text-sm`} onClick={handleMinusQty}>-</span>
+                    <div className='rounded-l-sm w-[70%] md:w-[50%] flex justify-evenly h-[30px] md:h-[35px] items-center gap-1 font-lato bg-[#00000018] hover:cursor-pointer hover:opacity-80 font-[100] mt-3'>
+                        <span className={`md:text-[25px] text-[20px]`} onClick={handleMinusQty}>-</span>
                         <span className='md:text-[16px] text-sm'>{quantity}</span>
-                        <span className='md:text-[20px] text-sm' onClick={handlePlusQty}>+</span>
+                        <span className='md:text-[20px] text-[18px]' onClick={handlePlusQty}>+</span>
                     </div>
                 </div>
 
