@@ -50,7 +50,7 @@ const Details = () => {
             </p>
 
 
-            <div className='w-[80%] lg:w-[60%] mx-auto h-[auto] grid md:grid-cols-2 mb-[20px] bg-white p-10'>
+            <div className='w-[80%] lg:w-[60%] mx-auto h-auto grid grid-cols-1 md:grid-cols-2 mb-[20px] bg-white p-10'>
                 <div className='flex justify-center items-center'>
                     <img src={detail.img} className='w-[455px] h-[389px] mx-auto object-contain object-center lg:drop-shadow-[0_40px_30px_#0007] drop-shadow-[0_20px_20px_#0007]' />
                 </div>

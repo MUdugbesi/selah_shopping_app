@@ -53,16 +53,16 @@ const Home = () => {
                 <p onClick={() => handleFilterFunction('unisex')} className={`hover:font-[600]`}>UNISEX</p>
 
             </div>
-            <div className='w-[60%] flex flex-col md:hidden mt-14 mb-14 h-auto mx-auto justify-center items-center hover:cursor-pointer font-ibm-plex-sans font-[600] text-[#0000007b]'>
+            <div className='w-[60%] flex flex-col md:hidden mt-14 mb-14 h-auto mx-auto justify-center items-center hover:cursor-pointer font-ibm-plex-sans font-[400] text-[#000000c3]'>
                 <div className='flex w-[100%] justify-evenly items-center pb-3'>
-                    <Link onClick={handleAll} >ALL</Link>
-                    <Link onClick={() => handleFilterFunction('male')}>MALE</Link>
-                    <Link onClick={() => handleFilterFunction('female')}>FEMALE</Link>
+                    <Link onClick={handleAll} className={`hover:font-[600] font-[900]`}>ALL</Link>
+                    <Link onClick={() => handleFilterFunction('male')} className={`hover:font-[600]`}>MALE</Link>
+                    <Link onClick={() => handleFilterFunction('female')} className={`hover:font-[600]`}>FEMALE</Link>
                     {!toggleOther ? <MdKeyboardArrowDown width={20} className='hover' onClick={handleOthersDisplay} /> : <MdKeyboardArrowUp width={20} className='hover' onClick={handleOthersDisplay} />}
                 </div>
                 <div className={`${toggleOther ? 'flex w-[100%] justify-evenly items-center' : 'hidden'}`}>
-                    <Link onClick={() => handleFilterFunction('accessories')} className='opacity-100'>ACCESSORIES</Link>
-                    <Link onClick={() => handleFilterFunction('unisex')}>UNISEX</Link>
+                    <Link onClick={() => handleFilterFunction('accessories')} className={`hover:font-[600]`}>ACCESSORIES</Link>
+                    <Link onClick={() => handleFilterFunction('unisex')} className={`hover:font-[600]`}>UNISEX</Link>
                 </div>
             </div>
 
