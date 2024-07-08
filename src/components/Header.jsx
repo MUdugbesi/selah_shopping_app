@@ -65,8 +65,8 @@ const Header = (props) => {
 
       {searchBar ? <div className='border-2 border-[black] w-[40%] md:w-[30%] flex items-center rounded-md p-1 justify-evenly md:justify-between transition-all ease-linear delay-75 duration-500' onMouseLeave={handleSearchBar}>
         <FiSearch size={20} className='hover md:flex' onClick={handleSearchFilter} />
-        <input className='h-[25px] md:h-[32px] w-full md:w-[90%] rounded-md pl-3 outline-none text-xs md:text-[16px]' value={val} onChange={handleInputChange} />
-        <MdOutlineClose size={20} className='hover flex' onClick={handleClearSearch} />
+        <input className={`h-[25px] md:h-[32px] w-full md:w-[90%] rounded-md pl-3 outline-none text-xs md:text-[16px] ${!val.length ? 'mr-12' : ''}`} value={val} onChange={handleInputChange} />
+        {val.length ? <MdOutlineClose size={20} className='hover flex' onClick={handleClearSearch} /> : ''}
       </div> : ''
 
       }
