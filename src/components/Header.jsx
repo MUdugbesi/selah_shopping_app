@@ -52,7 +52,7 @@ const Header = (props) => {
 
       {
         menuBar === true ?
-          <div className='bg-[white] w-[60%] h-screen absolute top-[100px] right-0 z-10 p-10 font-lato flex flex-col'>
+          <div className='bg-[white] w-[60%] h-screen absolute top-[100px] right-0 z-10 p-10 font-lato flex flex-col md:hidden'>
             <div className='flex flex-col w-[60%] items-center mx-auto gap-5 font-bold'>
               <Link to='/' className='nav_after active:text-[red]'>HOME</Link>
               <Link to='/' className='nav_after active:text-[red]'>SHOP</Link>
