@@ -31,11 +31,12 @@ const Header = (props) => {
 
   const handleStatusTab = () => {
     dispatch(toggleStatusBar())
-    console.log('clicked')
+
   }
 
   const handleSearchBar = () => {
     dispatch(toggleSearchBar())
+    dispatch(toggleMenuBar())
   }
 
 
